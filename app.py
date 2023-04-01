@@ -78,8 +78,8 @@ def create_vc_fn(model, hps, speaker_ids):
     return vc_fn
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_dir", default="./G_latest.pth", help="directory to your fine-tuned model")
-    parser.add_argument("--config_dir", default="./finetune_speaker.json", help="directory to your model config file")
+    parser.add_argument("--model_dir", default="./model/G_latest.pth", help="directory to your fine-tuned model")
+    parser.add_argument("--config_dir", default="./model/finetune_speaker.json", help="directory to your model config file")
     parser.add_argument("--share", default=False, help="make link public (used in colab)")
 
     args = parser.parse_args()
@@ -106,7 +106,7 @@ if __name__ == "__main__":
                 with gr.Column():
                     textbox = gr.TextArea(label="Text",
                                           placeholder="Type your sentence here",
-                                          value="こんにちわ。", elem_id=f"tts-input")
+                                          value="こんにちは、前島亜美です。お話できることをとても嬉しく思います。最近は何に忙しいんですか？", elem_id=f"tts-input")
                     # select character
                     char_dropdown = gr.Dropdown(choices=speakers, value=speakers[0], label='character')
                     language_dropdown = gr.Dropdown(choices=lang, value=lang[0], label='language')
